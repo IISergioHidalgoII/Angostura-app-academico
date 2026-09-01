@@ -89,8 +89,8 @@ test/           # pruebas existentes y simulaciones
 ### Pasos
 
 ```bash
-git clone https://github.com/IISergioHidalgoII/Aplicacion-turistica-academica.git
-cd Aplicacion-turistica-academica
+git clone https://github.com/IISergioHidalgoII/Angostura-app-academico.git
+cd Angostura-app-academico
 flutter pub get
 Copy-Item dart_defines.example.json dart_defines.json
 # Completa dart_defines.json con la configuración de tu proyecto Supabase.
