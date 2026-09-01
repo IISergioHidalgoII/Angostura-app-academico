@@ -1,0 +1,13 @@
+# Placeholder Image
+
+This is a placeholder image for species cards.
+
+The actual PNG files should be placed in this directory with names:
+- common.png
+- rare.png
+- epic.png
+
+Or specific card codes like:
+- ang001.png
+- ang002.png
+- etc.

@@ -1,0 +1,41 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// Placeholder for onboarding state management
+class OnboardingState {
+  final int currentStep;
+  final bool isLoading;
+  final String? error;
+
+  const OnboardingState({
+    this.currentStep = 0,
+    this.isLoading = false,
+    this.error,
+  });
+
+  OnboardingState copyWith({int? currentStep, bool? isLoading, String? error}) {
+    return OnboardingState(
+      currentStep: currentStep ?? this.currentStep,
+      isLoading: isLoading ?? this.isLoading,
+      error: error ?? this.error,
+    );
+  }
+}
+
+class OnboardingNotifier extends StateNotifier<OnboardingState> {
+  OnboardingNotifier() : super(const OnboardingState());
+
+  void nextStep() {
+    state = state.copyWith(currentStep: state.currentStep + 1);
+  }
+
+  void previousStep() {
+    if (state.currentStep > 0) {
+      state = state.copyWith(currentStep: state.currentStep - 1);
+    }
+  }
+}
+
+final onboardingProvider =
+    StateNotifierProvider<OnboardingNotifier, OnboardingState>(
+      (ref) => OnboardingNotifier(),
+    );
