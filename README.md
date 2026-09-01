@@ -4,7 +4,7 @@ Aplicación móvil educativa y turística en desarrollo para el **Parque Angostu
 
 El proyecto explora una experiencia de visita gamificada: orientación dentro del parque, descubrimiento de flora y fauna, colección de cartas mediante códigos QR, participación de grupos familiares y difusión de emprendimientos locales.
 
-> **Estado del proyecto:** prototipo académico en desarrollo y estabilización. Existen módulos funcionales y una integración activa con Supabase, pero todavía se están corrigiendo inconsistencias de arquitectura, seguridad, base de datos, sincronización y pruebas. No debe considerarse una aplicación de producción.
+> **Estado:** prototipo académico funcional y compilable, actualmente en estabilización. Cuenta con módulos implementados, integración con Supabase, pruebas automatizadas y una compilación Android de referencia. Persisten mejoras de arquitectura, seguridad y pruebas integrales antes de considerarlo apto para producción.
 
 > [!IMPORTANT]
 > **Proyecto académico independiente y sin afiliación oficial con Colbún S.A.** Este repositorio no ha sido patrocinado, autorizado, encargado ni validado oficialmente por Colbún S.A., Parque Angostura, las municipalidades de Santa Bárbara o Quilaco ni otras entidades vinculadas al destino. Los nombres, referencias territoriales y contenidos se utilizan exclusivamente con fines educativos y demostrativos. La aplicación no representa una fuente oficial de información turística, operacional o de seguridad.
@@ -113,6 +113,15 @@ flutter run -t lib/main_modular.dart --dart-define-from-file=dart_defines.json
 
 `dart_defines.json` está excluido de Git. No lo publiques ni incluyas una clave `service_role`. La clave `anon` se incorpora al cliente compilado y no sustituye la protección mediante políticas RLS correctamente configuradas.
 
+## Estado de verificación
+
+- `flutter pub get` resolvió correctamente las dependencias.
+- `flutter analyze` fue ejecutado y reportó 285 observaciones informativas pendientes.
+- `flutter test` finalizó con 8 pruebas aprobadas.
+- `flutter build apk --debug` generó correctamente un APK de depuración.
+
+Las pruebas actuales cubren lógica local, contraste visual y simulaciones. No sustituyen pruebas integrales con Supabase ni validaciones en dispositivos reales. Consulta [VALIDACION_TECNICA.md](VALIDACION_TECNICA.md) para revisar los resultados y su interpretación.
+
 ## Base de datos
 
 La carpeta `sql/` contiene un esquema base reconstruido, migraciones seleccionadas y datos opcionales de demostración. Los diagnósticos y scripts históricos se administran fuera del repositorio.
@@ -150,17 +159,18 @@ Hasta completar estas verificaciones, las funciones deben considerarse prototipo
 7. Resolver definitivamente la relación entre `id` y `season_id`.
 8. Completar y probar la sincronización offline.
 9. Reemplazar simulaciones por pruebas unitarias, de integración y de dispositivo.
-10. Preparar una compilación de referencia y documentación reproducible.
+10. Repetir análisis, pruebas y compilaciones de referencia después de cada etapa de estabilización.
 
 ## Documentación
 
 - [`sql/README_SQL.md`](sql/README_SQL.md): notas existentes sobre los scripts SQL.
+- [`VALIDACION_TECNICA.md`](VALIDACION_TECNICA.md): resultados e interpretación de la verificación técnica actual.
 
 La documentación académica, histórica y de continuidad se administra fuera de este repositorio, en una carpeta dedicada. Parte de ella describe decisiones posteriormente reemplazadas; el código y el esquema desplegado deben verificarse antes de asumir que una función está terminada.
 
 ## Recursos gráficos
 
-Las imágenes de especies incluidas en `assets/images/species/` se conservan para el prototipo privado. Su autoría, fuente y licencia todavía deben documentarse antes de hacer público el repositorio. No deben asumirse como libres de derechos ni reutilizarse fuera de este proyecto hasta completar esa verificación.
+Las imágenes de especies incluidas en `assets/images/species/` se conservan para el prototipo académico. La autoría, fuente y licencia de algunas imágenes todavía deben verificarse. No deben asumirse como libres de derechos ni reutilizarse fuera de este proyecto hasta completar esa comprobación.
 
 ## Referencias del territorio
 
@@ -170,7 +180,7 @@ Las imágenes de especies incluidas en `assets/images/species/` se conservan par
 
 ## Situación del repositorio
 
-Este README forma parte del proceso de recuperación y ordenamiento del proyecto. El objetivo inmediato no es ocultar sus problemas, sino convertir un prototipo amplio y disperso en una aplicación mantenible, verificable y presentable.
+Este README acompaña el proceso de estabilización del proyecto. La versión actual ofrece una base funcional, compilable y demostrable, mientras las mejoras pendientes se mantienen documentadas para orientar su evolución técnica.
 
 ## Autoría
 
